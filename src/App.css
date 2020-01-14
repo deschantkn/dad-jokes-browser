@@ -70,13 +70,14 @@
 .sharing-icons {
   width: 350px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .sharing-icons svg {
   box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.5);
   width: 5em;
   height: 5em;
+  padding: 5px;
   border-radius: 50%;
   transition: box-shadow .1s;
 }
