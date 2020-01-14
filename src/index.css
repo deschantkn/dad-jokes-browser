@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-white: #fbfafa;
+}
+
 body,
 ul {
   margin: 0;
@@ -17,7 +21,7 @@ ul {
 }
 
 .page__body.page__about {
-  background: #ffffff;
+  background: var(--color-white);
   font-family: 'Noto Sans', sans-serif;
   padding: 0 5em;
 }
@@ -42,13 +46,16 @@ ul {
 .page__footer h4,
 .page__joke h3 {
   font-family: 'Noto Sans', sans-serif;
-  color: #ffffff;
+  color: var(--color-white);
+}
+
+.page__header a {
+  text-decoration: none;
 }
 
 .page__header a,
 .page__footer a {
-  text-decoration: none;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .page__joke {
@@ -62,7 +69,7 @@ ul {
 .page__joke .joke-card {
   width: 350px;
   height: 400px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -85,7 +92,7 @@ ul {
 
 .joke-background .joke {
   width: 300px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   text-align: center;
   font-size: 2em;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
