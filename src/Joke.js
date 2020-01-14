@@ -5,11 +5,7 @@ import axios from 'axios';
 function Joke() {
   const [jokes, setJokes] = useState([]);
 
-  const handleSwipe = (index, indexLatest) => {
-    // Fetch one more and add each time user swipes
-  };
-
-  const fetchJokes = async () => {
+  const fetchInitialJokes = async () => {
     try {
       // Fetch 5 jokes
       const fetchedJokes = [];
@@ -37,7 +33,7 @@ function Joke() {
 
   const parseJokes = (jokes) => {
     const parsedJokes = jokes.map(joke => (
-      <div className="joke-card">
+      <div key={joke.id} className="joke-card">
         <div className="joke-background">
           <p className="joke">{joke.joke}</p>
         </div>
@@ -47,8 +43,25 @@ function Joke() {
     return parsedJokes;
   }
 
+  const handleSwipe = async (index, indexLatest) => {
+    // Append one more joke each time they swipe
+    const response = await axios.get('https://icanhazdadjoke.com/', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'User-Agent': 'Dad Joke Browser (https://github.com/deschankn/dad-jokes-browser)'
+      }
+    });
+
+    if (response.status === 200) {
+      const extraJoke = parseJokes([response.data]);
+      jokes.push(extraJoke);
+      setJokes(jokes);
+    }
+  };
+
   useEffect(() => {
-    if (jokes && jokes.length === 0) fetchJokes();
+    if (jokes && jokes.length === 0) fetchInitialJokes();
   });
 
   if (jokes && jokes.length > 0) {
@@ -57,6 +70,7 @@ function Joke() {
 
         <SwipeableViews 
           className="page__swipe"
+          enableMouseEvents={true}
           onChangeIndex={(index, indexLatest) => handleSwipe(index, indexLatest)}
         >
           {jokes}
