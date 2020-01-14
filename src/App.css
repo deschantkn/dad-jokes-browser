@@ -42,6 +42,7 @@
   font-family: Sniglet;
   box-sizing: border-box;
   padding: 10px;
+  margin: 0 10px;
 }
 
 .joke-card .joke-background {
@@ -83,4 +84,9 @@
 
 .sharing-icons svg:hover {
   box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.page__swipe {
+  width: 400px;
+  margin-left: 2em;
 }

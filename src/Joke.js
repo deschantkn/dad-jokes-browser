@@ -1,14 +1,29 @@
 import React from 'react'
+import SwipeableViews from 'react-swipeable-views';
 
 function Joke() {
   return (
     <div className="page__joke">
 
-      <div className="joke-card">
-        <div className="joke-background">
-          <p className="joke">My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.</p>
+      <SwipeableViews className="page__swipe">
+        <div className="joke-card">
+          <div className="joke-background">
+            <p className="joke">My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.</p>
+          </div>
         </div>
-      </div>
+  
+        <div className="joke-card">
+          <div className="joke-background">
+            <p className="joke">My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.</p>
+          </div>
+        </div>
+
+        <div className="joke-card">
+          <div className="joke-background">
+            <p className="joke">My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.</p>
+          </div>
+        </div>
+      </SwipeableViews>
 
       <h3 className="sharing-message">Don't laugh alone, Share!</h3>
 
