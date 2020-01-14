@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SwipeableViews from 'react-swipeable-views';
+import axios from 'axios';
 
 function Joke() {
   const [jokes, setJokes] = useState([]);
@@ -14,20 +15,18 @@ function Joke() {
       const fetchedJokes = [];
       let response;
       for (let i = 0; i < 5; i++) {
-        response = await fetch('https://icanhazdadjoke.com/', {
-          method: 'GET',
+        response = await axios.get('https://icanhazdadjoke.com/', {
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
             'User-Agent': 'Dad Joke Browser (https://github.com/deschankn/dad-jokes-browser)'
           }
         });
-        if (response.ok) {
-          fetchedJokes.push(await response.json());
+
+        if (response.status === 200) {
+          fetchedJokes.push(response.data);
         }
       }
-
-      console.log(response.status, fetchedJokes);
 
       // Parse jokes and set them in state
       setJokes(parseJokes(fetchedJokes));
@@ -44,11 +43,12 @@ function Joke() {
         </div>
       </div>
     ));
+
     return parsedJokes;
   }
 
   useEffect(() => {
-    fetchJokes();
+    if (jokes && jokes.length === 0) fetchJokes();
   });
 
   if (jokes && jokes.length > 0) {
