@@ -78,8 +78,7 @@
   width: 5em;
   height: 5em;
   border-radius: 50%;
-  cursor: pointer;
-  transition: box-shadow .3s;
+  transition: box-shadow .1s;
 }
 
 .sharing-icons svg:hover {
