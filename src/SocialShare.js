@@ -4,7 +4,7 @@ function SocialShare(props) {
   const { joke } = props;
 
   // TODO: Add website url
-  const message = `${joke} - More dad jokes on *website*!`;
+  const message = `${joke} - More dad jokes on *https://djbrowse.herokuapp.com/*!`;
 
   return (
     <React.Fragment>

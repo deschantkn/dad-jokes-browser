@@ -4,7 +4,7 @@
 
 Ideas and suggestions are welcome!
 
-Live at <insert_link_here>
+Live at https://djbrowse.herokuapp.com
 
 A small project I hacked together so that I could indulge in my love of dad jokes a little easier 😆
 
