@@ -72,6 +72,8 @@ function Joke() {
     return (
       <div className="page__joke animated shake">
 
+        <h3>Swipe right to view more</h3>
+
         <SwipeableViews 
           className="page__swipe"
           enableMouseEvents={true}
