@@ -93,7 +93,7 @@ function Joke() {
       >  
         <div className="joke-card">
           <div className="joke-background">
-            <p className="joke">Loading...</p>
+          <div class="lds-ripple"><div></div><div></div></div>
           </div>
         </div>
       </SwipeableViews>
