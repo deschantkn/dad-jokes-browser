@@ -3,7 +3,6 @@ import React from 'react'
 function SocialShare(props) {
   const { joke } = props;
 
-  // TODO: Add website url
   const message = `${joke} - More dad jokes on *https://djbrowse.herokuapp.com/*!`;
 
   return (
