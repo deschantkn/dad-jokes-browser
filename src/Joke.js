@@ -16,8 +16,7 @@ function Joke() {
         response = await axios.get('https://icanhazdadjoke.com/', {
           headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'User-Agent': 'Dad Joke Browser (https://github.com/deschankn/dad-jokes-browser)'
+            'Accept': 'application/json'
           }
         });
 
@@ -51,13 +50,14 @@ function Joke() {
     const response = await axios.get('https://icanhazdadjoke.com/ ', {
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'User-Agent': 'Dad Joke Browser (https://github.com/deschankn/dad-jokes-browser)'
+        'Accept': 'application/json'
       }
     });
 
     if (response.status === 200) {
       const extraJoke = parseJokes([response.data]);
+      rawJokeData.push(response.data);
+      setRawJokeData(rawJokeData);
       jokes.push(extraJoke);
       setJokes(jokes);
       setCurrentJoke(index);
