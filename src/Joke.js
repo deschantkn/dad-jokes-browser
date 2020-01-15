@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import ReactGA from 'react-ga';
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
 import SocialShare from './SocialShare';
 
-function Joke() {
+const trackingId = "UA-104496157-4";
+ReactGA.initialize(trackingId);
+
+function Joke(props) {
+  ReactGA.set({
+    page: props.history.location.pathname
+  });
+
   const [rawJokeData, setRawJokeData] = useState([]);
   const [jokes, setJokes] = useState([]);
   const [currentJoke, setCurrentJoke] = useState(0)
@@ -62,6 +70,11 @@ function Joke() {
       setJokes(jokes);
       setCurrentJoke(index);
     }
+
+    ReactGA.event({
+      category: "Swipe",
+      action: "User swiped joke card"
+    });
   };
 
   useEffect(() => {
