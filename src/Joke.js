@@ -70,7 +70,7 @@ function Joke() {
 
   if (jokes && jokes.length > 0) {
     return (
-      <div className="page__joke">
+      <div className="page__joke animated shake">
 
         <SwipeableViews 
           className="page__swipe"
@@ -86,7 +86,7 @@ function Joke() {
   }
 
   return (
-    <div className="page__joke">
+    <div className="page__joke animated zoomIn">
 
       <SwipeableViews 
         className="page__swipe"
