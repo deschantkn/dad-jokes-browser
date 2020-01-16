@@ -4,7 +4,7 @@ import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
 import SocialShare from './SocialShare';
 
-const trackingId = "UA-104496157-4";
+const trackingId = process.env.REACT_APP_GA_ID;
 ReactGA.initialize(trackingId);
 
 function Joke(props) {
