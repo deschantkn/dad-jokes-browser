@@ -3,7 +3,7 @@ import React from 'react'
 function SocialShare(props) {
   const { joke } = props;
 
-  const message = `${joke} - More dad jokes on *https://djbrowse.herokuapp.com/*!`;
+  const message = `${joke} - More dad jokes on https://djbrowse.herokuapp.com #dadjokes`;
 
   return (
     <React.Fragment>
