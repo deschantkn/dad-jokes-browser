@@ -1,0 +1,19 @@
+.page__header {
+  padding: 0 10px;
+
+  h1 {
+    font-family: Pacifico, sans-serif;
+    font-size: 1.5em;
+  }
+
+  .profile-icon {
+    button {
+      color: #ffffff;
+      font-size: 2em;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

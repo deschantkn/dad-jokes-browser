@@ -7,7 +7,7 @@ import About from './About';
 
 function App() {
   return (
-    <div className="page__body">
+    <div className="container-fluid page__body">
       <Header />
       <Switch>
         <Route exact path="/" component={Joke} />

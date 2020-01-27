@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@import './colors';
 
 * {
   box-sizing: border-box;
@@ -17,29 +17,19 @@ ul {
 
 .page__body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #AA076B 0%, rgba(97, 4, 95, 0.97) 100%);
+  background: linear-gradient(180deg, $main-color 0%, rgba(97, 4, 95, 0.97) 100%);
   display: flex;
   flex-direction: column;
 
-  .page__header {
-    h1 {
-      font-family: Pacifico, sans-serif;
-    }
-
-    a {
-      text-decoration: none;
-    }
+  .page__footer {
+    justify-content: center;
   }
-
-  .page__footer {}
 
   .page__header,
   .page__footer {
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
-
     a {
       color: var(--color-white);
     }
@@ -125,7 +115,7 @@ ul {
 
     div {
       position: absolute;
-      border: 4px solid #AA076B;
+      border: 4px solid $main-color;
       opacity: 1;
       border-radius: 50%;
       animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
