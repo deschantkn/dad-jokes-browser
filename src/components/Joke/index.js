@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactGA from 'react-ga';
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
-import SocialShare from './SocialShare';
+import SocialShare from '../SocialShare';
 
 const trackingId = process.env.REACT_APP_GA_ID;
 ReactGA.initialize(trackingId);

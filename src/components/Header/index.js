@@ -1,14 +1,16 @@
 import React from 'react'
+
 import './Header.scss';
 import Dropdown from '../Dropdown';
 
-export default function Header() {
-  const dropdownListItems = (
-    <React.Fragment>
-      <li><a href="/jokes">My Jokes</a></li>
-      <li><a href="/logout">Logout</a></li>
-    </React.Fragment>
-  );
+function Header() {
+  // const dropdownListItems = (
+  //   <React.Fragment>
+  //     <li><a href="/jokes">My Jokes</a></li>
+  //     <li><a href="/logout">Logout</a></li>
+  //   </React.Fragment>
+  // );
+  const dropdownListItems = <li><a href="/signup">Signup</a> or <a href="/login">Login</a> to create and share your jokes!</li>;
 
   // TODO: Replace with user profile picture if logged in
   const dropdownButton = <i class="far fa-user-circle"></i>;
@@ -23,3 +25,5 @@ export default function Header() {
     </div>
   )
 }
+
+export default Header;
