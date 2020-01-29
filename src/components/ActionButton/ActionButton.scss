@@ -1,0 +1,21 @@
+.action-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  i {
+    font-size: 1.25em;
+  }
+}

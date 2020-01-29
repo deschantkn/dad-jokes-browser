@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
 import Dropdown from '../Dropdown';
+import ActionButton from '../ActionButton';
 
 
 function Joke() {
@@ -95,23 +96,15 @@ function Joke() {
         >
           {jokes}
         </SwipeableViews>
-        {/* // TODO: Add create button */}
+
+        <ActionButton icon={<i class="fas fa-pen" />} />
       </main>
     )
   }
 
   return (
     <main className="page__main animated zoomIn">
-      <SwipeableViews 
-        className="page__swipe"
-      >  
-        <div className="joke-card">
-          <div className="joke-background">
-          <div className="lds-ripple"><div></div><div></div></div>
-          </div>
-        </div>
-      </SwipeableViews>
-
+      <div className="lds-ripple"><div></div><div></div></div>
     </main>
   )
 }
