@@ -1,7 +1,6 @@
 @import '../../scss/colors';
 
-.dropdown-custom {
-  position: absolute;
+.dropdown-menu-custom {
   background: $main-color;
   border: 1px solid $secondary-color;
   border-radius: .4em;
@@ -12,6 +11,10 @@
 
     &:hover {
       background-color: $secondary-color;
+    }
+
+    a {
+      color: #fff;
     }
   }
 }

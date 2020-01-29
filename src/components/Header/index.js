@@ -13,7 +13,7 @@ function Header() {
   const dropdownListItems = <li><a href="/auth">Signup</a> or <a href="/auth">Login</a> to create and share your jokes!</li>;
 
   // TODO: Replace with user profile picture if logged in
-  const dropdownButton = <i className="far fa-user-circle"></i>;
+  const dropdownButton = <i className="far fa-user-circle" />;
 
   return (
     <div className="page__header row justify-content-between">
@@ -21,7 +21,7 @@ function Header() {
         <h1>Dad Joke Browser</h1>
       </a>
 
-      <Dropdown dropdownButton={dropdownButton} dropdownContent={dropdownListItems} />
+      <Dropdown dropdownButton={dropdownButton} dropdownContent={dropdownListItems} withBubble={true} />
     </div>
   )
 }

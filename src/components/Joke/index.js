@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import ReactGA from 'react-ga';
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
-import SocialShare from '../SocialShare';
+import Dropdown from '../Dropdown';
 
-const trackingId = process.env.REACT_APP_GA_ID;
-ReactGA.initialize(trackingId);
 
-function Joke(props) {
-  ReactGA.set({
-    page: props.history.location.pathname
-  });
-
+function Joke() {
   const [rawJokeData, setRawJokeData] = useState([]);
   const [jokes, setJokes] = useState([]);
-  const [currentJoke, setCurrentJoke] = useState(0)
 
   const fetchInitialJokes = async () => {
     try {
-      // Fetch 5 jokes
       let response;
+      // Start by fetching 5 jokes
       for (let i = 0; i < 5; i++) {
         response = await axios.get('https://icanhazdadjoke.com/', {
           headers: {
@@ -42,13 +34,30 @@ function Joke(props) {
   };
 
   const parseJokes = (jokes) => {
-    const parsedJokes = jokes.map(joke => (
-      <div key={joke.id} className="joke-card">
-        <div className="joke-background">
-          <p className="joke">{joke.joke}</p>
+    const parsedJokes = jokes.map(joke => {
+      const message = `${joke.joke} - More dad jokes on https://djbrowse.herokuapp.com #dadjokes`;
+
+      const dropdownContent = (
+        <React.Fragment>
+          <li><a href={`whatsapp://send?text=${message}`} data-action="share/whatsapp/share">Whatsapp</a></li>
+          <li><a href={`https://twitter.com/intent/tweet?text=${message}&hashtags=DadJoke`}>Twitter</a></li>
+        </React.Fragment>
+      );
+    
+      return (
+        <div key={joke.id} className="joke-card">
+          <div className="joke-background">
+            <div className="joke">
+              <p>{joke.joke}</p>
+              <div className="joke-info d-flex align-items-center justify-content-between">
+                <span>From <i>Deschant</i></span>
+                <Dropdown dropdownButton={<i className="fa fa-2x fa-share-alt" />} dropdownContent={dropdownContent} />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    ));
+      );
+    });
 
     return parsedJokes;
   }
@@ -64,17 +73,9 @@ function Joke(props) {
 
     if (response.status === 200) {
       const extraJoke = parseJokes([response.data]);
-      rawJokeData.push(response.data);
-      setRawJokeData(rawJokeData);
       jokes.push(extraJoke);
       setJokes(jokes);
-      setCurrentJoke(index);
     }
-
-    ReactGA.event({
-      category: "Swipe",
-      action: "User swiped joke card"
-    });
   };
 
   useEffect(() => {
@@ -94,8 +95,7 @@ function Joke(props) {
         >
           {jokes}
         </SwipeableViews>
-
-        <SocialShare joke={rawJokeData[currentJoke].joke} />
+        {/* // TODO: Add create button */}
       </main>
     )
   }
@@ -107,7 +107,7 @@ function Joke(props) {
       >  
         <div className="joke-card">
           <div className="joke-background">
-          <div class="lds-ripple"><div></div><div></div></div>
+          <div className="lds-ripple"><div></div><div></div></div>
           </div>
         </div>
       </SwipeableViews>

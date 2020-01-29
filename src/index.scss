@@ -55,7 +55,6 @@ ul {
 
     .joke-card {
       width: 350px;
-      height: 400px;
       background-color: var(--color-white);
       border-radius: 20px;
       display: flex;
@@ -85,6 +84,17 @@ ul {
       box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
       border-radius: 15px;
       padding: 5px;
+      margin: 30px 0;
+
+      p {
+        margin: 0;
+      }
+
+      .joke-info {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: .6em;
+        padding: 0 10px;
+      }
     }
   }
 
