@@ -10,10 +10,10 @@ function Header() {
   //     <li><a href="/logout">Logout</a></li>
   //   </React.Fragment>
   // );
-  const dropdownListItems = <li><a href="/signup">Signup</a> or <a href="/login">Login</a> to create and share your jokes!</li>;
+  const dropdownListItems = <li><a href="/auth">Signup</a> or <a href="/auth">Login</a> to create and share your jokes!</li>;
 
   // TODO: Replace with user profile picture if logged in
-  const dropdownButton = <i class="far fa-user-circle"></i>;
+  const dropdownButton = <i className="far fa-user-circle"></i>;
 
   return (
     <div className="page__header row justify-content-between">

@@ -26,6 +26,8 @@ function About() {
         {" "}
         <span role="img" aria-label="Smiling Emoji">😌</span>
       </h4>
+
+      <p>Made with <span role="img" aria-label="Heart Emoji">❤️</span> by <a href="https://github.com/deschantkn">Deschant</a></p>
     </div>
   )
 }

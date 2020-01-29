@@ -83,9 +83,9 @@ function Joke(props) {
 
   if (jokes && jokes.length > 0) {
     return (
-      <div className="page__joke animated shake">
+      <main className="page__main animated shake">
 
-        <h3>Swipe right to view more</h3>
+        <h4>Swipe right to view more</h4>
 
         <SwipeableViews 
           className="page__swipe"
@@ -96,13 +96,12 @@ function Joke(props) {
         </SwipeableViews>
 
         <SocialShare joke={rawJokeData[currentJoke].joke} />
-      </div>
+      </main>
     )
   }
 
   return (
-    <div className="page__joke animated zoomIn">
-
+    <main className="page__main animated zoomIn">
       <SwipeableViews 
         className="page__swipe"
       >  
@@ -113,7 +112,7 @@ function Joke(props) {
         </div>
       </SwipeableViews>
 
-    </div>
+    </main>
   )
 }
 

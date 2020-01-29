@@ -5,6 +5,7 @@ import Header from '../Header';
 import Joke from '../Joke';
 import Footer from '../Footer';
 import About from '../About';
+import Auth from '../Auth';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Joke} />
         <Route exact path="/about" component={About} />
+        <Route export path="/auth" component={Auth} />
       </Switch>
       <Footer />
     </div>
