@@ -157,15 +157,20 @@ ul {
       opacity: 0;
     }
   }
-}
 
-.page__body.page__about {
-  background: var(--color-white);
-  font-family: 'Noto Sans', sans-serif;
-  padding: 0 5em;
+  .page__about {
+    font-family: 'Noto Sans', sans-serif;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  
+    a {
+      color: #000;
+      font-style: italic;
+    }
 
-  a {
-    color: #000;
-    font-style: italic;
+    h5 {
+      margin: 10px 0;
+    }
   }
 }

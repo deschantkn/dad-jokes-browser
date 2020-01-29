@@ -2,13 +2,15 @@ import React from 'react'
 
 function About() {
   return (
-    <div className="page__body page__about">
-      <h2>Dad Joke Browser</h2>
+    <main className="page__main page__about">
       <p>
-        A quick project I hacked together so that I could indulge in my love of dad jokes a little easier! They can crack me up!
+        A quick project I hacked together so that to easily find and share puns!
+        {" "}
         <span role="img" aria-label="Smiling Emoji">😆</span>
       </p>
+
       <h3>Tools and Resources</h3>
+
       <ul>
         <li>Designed with <a target="_blank" rel="noopener noreferrer" href="https://www.figma.com">Figma</a></li>
         <li>Built with <a target="_blank" rel="noopener noreferrer" href="https://reactjs.org/">React.js</a></li>
@@ -18,17 +20,18 @@ function About() {
         <li>Loading icon from <a target="_blank" rel="noopener noreferrer" href="https://loading.io/css">loading.io</a></li>
         <li>Animations from <a target="_blank" rel="noopener noreferrer" href="https://daneden.github.io/animate.css/">loading.io</a></li>
       </ul>
-      <h4>
+
+      <h5>
         <strong>P.S: </strong>
         If you enjoy dad jokes too then send me your funniest ones on
         {" "}
         <a href="https://twitter.com/deschantk">Twitter!</a>
         {" "}
         <span role="img" aria-label="Smiling Emoji">😌</span>
-      </h4>
+      </h5>
 
       <p>Made with <span role="img" aria-label="Heart Emoji">❤️</span> by <a href="https://github.com/deschantkn">Deschant</a></p>
-    </div>
+    </main>
   )
 }
 
