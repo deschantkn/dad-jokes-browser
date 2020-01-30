@@ -1,5 +1,13 @@
 @import '../../scss/colors';
 
+.dropdow-custom {
+  button {
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
 .dropdown-menu-custom {
   background: $main-color;
   border: 1px solid $secondary-color;

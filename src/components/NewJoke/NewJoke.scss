@@ -1,0 +1,22 @@
+.new-joke {
+  .joke-card {
+
+  }
+
+  textarea {
+    height: 300px;
+    width: 300px;
+    margin: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+    font-size: 2em;
+    text-align: justify;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

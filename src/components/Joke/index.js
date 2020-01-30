@@ -37,7 +37,6 @@ function Joke() {
   const parseJokes = (jokes) => {
     const parsedJokes = jokes.map(joke => {
       const message = `${joke.joke} - More dad jokes on https://djbrowse.herokuapp.com #dadjokes`;
-
       const dropdownContent = (
         <React.Fragment>
           <li><a href={`whatsapp://send?text=${message}`} data-action="share/whatsapp/share">Whatsapp</a></li>
