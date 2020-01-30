@@ -7,6 +7,7 @@ import Footer from '../Footer';
 import About from '../About';
 import Auth from '../Auth';
 import NewJoke from '../NewJoke';
+import Jokes from '../Jokes';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/about" component={About} />
         <Route export path="/auth" component={Auth} />
         <Route export path="/create" component={NewJoke} />
+        <Route export path="/jokes" component={Jokes} />
       </Switch>
       <Footer />
     </div>
