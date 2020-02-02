@@ -22,7 +22,10 @@ const NewJoke = (props) => {
     <main className="page__main new-joke">
       <div className="joke-card">
         <div className="joke-background">
-          <textarea value={newJoke} onChange={e => setNewJoke(e.target.value)} placeholder="..." />
+          <textarea
+            value={newJoke} 
+            onChange={e => setNewJoke(e.target.value)} 
+            placeholder="..." />
         </div>
       </div>
       {actionButton}
