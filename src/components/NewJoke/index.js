@@ -6,12 +6,17 @@ import ActionButton from '../ActionButton';
 import './NewJoke.scss';
 
 const NewJoke = (props) => {
-  const { onCreateJoke } = props;
+  const { onCreateJoke, createdJokes } = props;
+
   const [newJoke, setNewJoke] = useState("");
 
   const handleJokeSunmission = () => {
     onCreateJoke(newJoke);
   };
+
+  let actionButton;
+  if (createdJokes.isCreating) actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-circle-notch fa-spin" />} isDisabled/>);
+  else actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-check" />} />);
 
   return (
     <main className="page__main new-joke">
@@ -20,13 +25,15 @@ const NewJoke = (props) => {
           <textarea value={newJoke} onChange={e => setNewJoke(e.target.value)} placeholder="..." />
         </div>
       </div>
-      <ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-check" />} />
+      {actionButton}
     </main>
   )
 }
+
+const mapStateToProps = ({ jokes }) => ({ createdJokes: jokes });
 
 const mapDispatchToProps = dispatch => ({
   onCreateJoke: (joke) => dispatch(createJoke(joke))
 });
 
-export default connect(null, mapDispatchToProps)(NewJoke);
+export default connect(mapStateToProps, mapDispatchToProps)(NewJoke);

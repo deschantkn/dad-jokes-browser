@@ -6,27 +6,30 @@ import {
 } from '../types/jokes.types';
 
 const initialState = {
-  isFetching: false,
+  isCreating: false,
   jokesList: [],
-  doneCreatingJoke: undefined,
 };
 
 const reducer = (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type, payload } = action; 
 
   switch (type) {
     case GET_USER_JOKES:
       break;
+    case CREATE_JOKE:
+      return {
+        ...state,
+        isCreating: true
+      }
     case CREATE_JOKE_FINISHED:
       state.jokesList.push(payload.joke);
       return {
         ...state,
-        doneCreatingJoke: true
+        isCreating: false
       };
     case CREATE_JOKE_ERROR:
       console.log(payload.error);
       return state;
-    case CREATE_JOKE:
     default:
       return state;
   }
