@@ -96,7 +96,7 @@ function Joke() {
           {jokes}
         </SwipeableViews>
 
-        <ActionButton icon={<i class="fas fa-pen" />} />
+        <ActionButton icon={<i className="fas fa-pen" />} />
       </main>
     )
   }

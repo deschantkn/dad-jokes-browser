@@ -1,19 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux';
+import { createJoke } from '../../store/actions/jokes.actions';
 
 import ActionButton from '../ActionButton';
 import './NewJoke.scss';
 
-function NewJoke() {
+const NewJoke = (props) => {
+  const { onCreateJoke } = props;
+  const [newJoke, setNewJoke] = useState("");
+
+  const handleJokeSunmission = () => {
+    onCreateJoke(newJoke);
+  };
+
   return (
     <main className="page__main new-joke">
       <div className="joke-card">
         <div className="joke-background">
-          <textarea placeholder="..." />
+          <textarea value={newJoke} onChange={e => setNewJoke(e.target.value)} placeholder="..." />
         </div>
       </div>
-      <ActionButton icon={<i class="fas fa-check" />} />
+      <ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-check" />} />
     </main>
   )
 }
 
-export default NewJoke;
+const mapDispatchToProps = dispatch => ({
+  onCreateJoke: (joke) => dispatch(createJoke(joke))
+});
+
+export default connect(null, mapDispatchToProps)(NewJoke);

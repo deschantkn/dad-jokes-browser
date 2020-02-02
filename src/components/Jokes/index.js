@@ -18,13 +18,22 @@ function Jokes() {
 
         <li>
           <div className="joke-card">
-            <p className="joke-summary">Yo</p>
+            {/* // TODO: Implement 80-character limit on jokes */}
+            <p className="joke-summary">Yokhdihfkdfs dsf dfsdfdfadsfs adfsafsad asdfsadfsdfagsa adfasdfds sfgasgsffdf ...</p>
           </div>
         </li>
 
         <li>
           <div className="joke-card">
-            <p className="joke-summary">Yo</p>
+            {/* // TODO: Implement 80-character limit on jokes */}
+            <p className="joke-summary">Yokhdihfkdfs dsf dfsdfdfadsfs adfsafsad asdfsadfsdfagsa adfasdfds sfgasgsffdf ...</p>
+          </div>
+        </li>
+    
+        <li>
+          <div className="joke-card">
+            {/* // TODO: Implement 80-character limit on jokes */}
+            <p className="joke-summary">Yokhdihfkdfs dsf dfsdfdfadsfs adfsafsad asdfsadfsdfagsa adfasdfds sfgasgsffdf ...</p>
           </div>
         </li>
       </ul>

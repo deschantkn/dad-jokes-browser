@@ -23,7 +23,7 @@ function Auth() {
       <div className="form-group">
         <input type="password" className="form-control" id="password" aria-describedby="passwordHelp" placeholder="Pick a password" />
       </div>
-      <button type="submit" class="btn btn-custom">Login</button>
+      <button type="submit" className="btn btn-custom">Login</button>
     </form>
   );
   const signupForm = (
@@ -37,7 +37,7 @@ function Auth() {
       <div className="form-group">
         <input type="password" className="form-control" id="passwordConfirm" aria-describedby="passwordHelp" placeholder="Confirm password" />
       </div>
-      <button type="submit" class="btn btn-custom">Signup</button>
+      <button type="submit" className="btn btn-custom">Signup</button>
     </form>
   );
 
@@ -72,10 +72,10 @@ function Auth() {
 
       {activeForm}
 
-      <div class="line">
-        <hr class="bar" />
+      <div className="line">
+        <hr className="bar" />
         <span>OR</span>
-        <hr class="bar" />
+        <hr className="bar" />
       </div>
 
       <div className="social-auth">

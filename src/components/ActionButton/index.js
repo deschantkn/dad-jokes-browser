@@ -3,9 +3,9 @@ import React from 'react'
 import './ActionButton.scss';
 
 function ActionButton(props) {
-  const { icon } = props;
+  const { icon, action } = props;
   return (
-    <button className="btn action-btn">
+    <button className="btn action-btn" onClick={action}>
       {icon}
     </button>
   )
