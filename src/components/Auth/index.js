@@ -15,24 +15,29 @@ const Auth = () => {
     ]
   };
 
+  // TODO: outsource login logic to LoginForm.js
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  // TODO: outsource signup logic to SignupForm.js
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
+  // TODO: outsource login logic to LoginForm.js
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     alert('Login!');
   };
 
+  // TODO: outsource signup logic to SignupForm.js
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     alert('Signup');
   };
 
+  // TODO: outsource login logic to LoginForm.js
   const loginForm = (
     <form onSubmit={handleLoginSubmit} className="manual-auth">
       <div className="form-group">
@@ -62,6 +67,7 @@ const Auth = () => {
     </form>
   );
 
+  // TODO: outsource signup logic to SignupForm.js
   const signupForm = (
     <form onSubmit={handleSignupSubmit} className="manual-auth">
 
@@ -128,10 +134,13 @@ const Auth = () => {
     </form>
   );
 
+  // TODO: keep all the calls to useState in sequence, move the below calls to the top of the component.
+  // more here: https://reactjs.org/docs/hooks-rules.html#explanation
   const [activeForm, setActiveForm] = useState(loginForm);
   const [isSignup, setIsSignup] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
 
+  // TODO: check my comment in line 170
   const handleFormChange = (form) => {
     switch (form) {
       case 'login':
@@ -157,6 +166,11 @@ const Auth = () => {
         <li className={`nav-item ${isLogin ? 'tab-active' : ''}`}><button onClick={() => handleFormChange('login')} className="btn">Login</button></li>
       </ul>
 
+      {
+      /* TODO: Use HOC or render props pattern to set a variable component. For this case dont need activeForm to be variable
+        Should be: 
+        activeForm === 'Login' ? <Login /> : <Signup /> */
+      }
       {activeForm}
 
       <div className="line">
