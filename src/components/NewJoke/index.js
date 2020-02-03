@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { createJoke } from '../../store/actions/jokes.actions';
+import { Redirect } from 'react-router-dom';
 
 import ActionButton from '../ActionButton';
 import './NewJoke.scss';
 
 const NewJoke = (props) => {
-  const { onCreateJoke, createdJokes } = props;
+  console.log(props);
+  const { onCreateJoke, createdJokes, firebaseAuth } = props;
 
   const [newJoke, setNewJoke] = useState("");
 
@@ -17,6 +19,10 @@ const NewJoke = (props) => {
   let actionButton;
   if (createdJokes.isCreating) actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-circle-notch fa-spin" />} isDisabled/>);
   else actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-check" />} />);
+
+  if (firebaseAuth.isEmpty) {
+    return <Redirect to="/auth#r=1" />;
+  }
 
   return (
     <main className="page__main new-joke">
@@ -33,7 +39,7 @@ const NewJoke = (props) => {
   )
 }
 
-const mapStateToProps = ({ jokes }) => ({ createdJokes: jokes });
+const mapStateToProps = ({ jokes, firebase : { auth } }) => ({ createdJokes: jokes, firebaseAuth: auth });
 
 const mapDispatchToProps = dispatch => ({
   onCreateJoke: (joke) => dispatch(createJoke(joke))

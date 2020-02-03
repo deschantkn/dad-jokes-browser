@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
+
 import Dropdown from '../Dropdown';
 import ActionButton from '../ActionButton';
 
@@ -98,7 +99,7 @@ function Joke(props) {
           {jokes}
         </SwipeableViews>
 
-        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/jokes")} />
+        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
       </main>
     )
   }

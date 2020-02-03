@@ -6,8 +6,6 @@ import { withRouter } from 'react-router-dom';
 import { login } from '../../store/actions/auth.actions';
 
 function Login(props) {
-  console.log(props);
-
   const { onLogin, loginError, history, firebaseAuth } = props;
 
   const [email, setLoginEmail] = useState("");

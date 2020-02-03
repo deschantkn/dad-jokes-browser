@@ -16,13 +16,14 @@ function Header(props) {
     dropdownListItems = (
       <React.Fragment>
         <li><Link to="/jokes">My Jokes</Link></li>
-        <li><Link onClick={() => onLogout()}>Logout</Link></li>
+        {/* TODO: Update <li> items' css to use span as child and have cursor pointer */}
+        <li onClick={() => onLogout()}><span>Logout</span></li>
       </React.Fragment>
     );
     dropdownButton = <i className="fas fa-user-circle" />;
   } else if (profileIsLoaded && profileIsEmpty) {
     // User is not logged in
-    dropdownButton = <i class="fas fa-sign-in-alt" />;
+    dropdownButton = <i className="fas fa-sign-in-alt" />;
     dropdownListItems = <li><Link to="/auth">Login or Signup</Link> to create and share your jokes!</li>;
   } else {
     // Profile is most likely loading
