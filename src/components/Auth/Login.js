@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
 function Login() {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [email, setLoginEmail] = useState("");
+  const [password, setLoginPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Login!');
+    console.log({ email, password });
   };
 
   return (
@@ -18,7 +18,7 @@ function Login() {
           className="form-control"
           aria-describedby="Enter your email address"
           placeholder="Enter email address"
-          value={loginEmail}
+          value={email}
           onChange={e => setLoginEmail(e.target.value)}
           required />
       </div>
@@ -29,8 +29,8 @@ function Login() {
           type="password"
           className="form-control"
           aria-describedby="passwordHelp"
-          placeholder="Pick a password"
-          value={loginPassword}
+          placeholder="Enter your password"
+          value={password}
           onChange={e => setLoginPassword(e.target.value)} 
           required />
       </div>

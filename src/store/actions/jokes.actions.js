@@ -10,7 +10,7 @@ export const getJokes = () => async (dispatch) => {
 };
 
 export const createJoke = (joke) => async (dispatch, getState, { getFirebase, getFirestore }) => {
-  const firestore = getFirestore();
+  const firestore = getFirebase().firestore();
   const newJoke = { joke, author: 'Anonymous' };
 
   try {

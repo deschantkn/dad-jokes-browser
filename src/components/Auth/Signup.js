@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [signupEmail, setSignupEmail] = useState("");
-  const [signupPassword, setSignupPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Signup');
+    console.log({ firstName, lastName, email, password, passwordConfirm });
   };
 
   return (
@@ -44,8 +44,8 @@ function Signup() {
           id="email"
           aria-describedby="emailHelp"
           placeholder="Enter email address"
-          value={signupEmail}
-          onChange={e => setSignupEmail(e.target.value)}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
           required />
       </div>
 
@@ -56,8 +56,8 @@ function Signup() {
           id="password"
           aria-describedby="passwordHelp"
           placeholder="Pick a password"
-          value={signupPassword}
-          onChange={e => setSignupPassword(e.target.value)}
+          value={password}
+          onChange={e => setPassword(e.target.value)}
           required />
       </div>
 
