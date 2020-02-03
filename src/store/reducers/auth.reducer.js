@@ -4,7 +4,10 @@ import {
   LOGIN_ERROR,
   LOGOUT,
   LOGOUT_SUCCESS,
-  LOGOUT_ERROR
+  LOGOUT_ERROR,
+  SIGNUP,
+  SIGNUP_SUCCESS,
+  SIGNUP_ERROR,
 } from "../types/auth.types";
 
 
@@ -12,7 +15,9 @@ const initialState = {
   loginError: false,
   loginSuccess: false,
   logoutError: false,
-  logoutSuccess: false
+  logoutSuccess: false,
+  signupError: false,
+  signupSuccess: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -40,11 +45,24 @@ const reducer = (state = initialState, action) => {
     case LOGOUT_ERROR:
       return {
         ...state,
-        logoutError: true,
+        logoutError: payload.error,
         logoutSuccess: false
       }
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        signupError: false,
+        signupSuccess: true,
+      };
+    case SIGNUP_ERROR:
+      return {
+        ...state,
+        signupError: payload.error,
+        signupSuccess: false,
+      };
     case LOGIN:
     case LOGOUT:
+    case SIGNUP:
     default:
       return state;
   }

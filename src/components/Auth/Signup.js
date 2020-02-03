@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { signup } from '../../store/actions/auth.actions';
 
-function Signup() {
+function Signup(props) {
+  const { onSignup } = props;
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -9,7 +13,7 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ firstName, lastName, email, password, passwordConfirm });
+    onSignup({ firstName, lastName, email, password, passwordConfirm })
   };
 
   return (
@@ -78,4 +82,8 @@ function Signup() {
   )
 }
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => ({
+  onSignup: (newUser) => dispatch(signup(newUser))
+});
+
+export default connect(null, mapDispatchToProps)(Signup);
