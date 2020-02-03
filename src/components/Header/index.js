@@ -1,19 +1,34 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../store/actions/auth.actions';
 
 import './Header.scss';
 import Dropdown from '../Dropdown';
 
-function Header() {
-  // const dropdownListItems = (
-  //   <React.Fragment>
-  //     <li><a href="/jokes">My Jokes</a></li>
-  //     <li><a href="/logout">Logout</a></li>
-  //   </React.Fragment>
-  // );
-  const dropdownListItems = <li><a href="/auth">Login or Signup</a> to create and share your jokes!</li>;
+function Header(props) {
+  const { firebaseAuth: { isLoaded: profileIsLoaded, isEmpty: profileIsEmpty }, onLogout } = props;
 
-  // TODO: Replace with user profile picture if logged in
-  const dropdownButton = <i className="far fa-user-circle" />;
+  let dropdownListItems;
+  let dropdownButton;
+  if (profileIsLoaded && !profileIsEmpty) {
+    // User is logged
+    dropdownListItems = (
+      <React.Fragment>
+        <li><Link to="/jokes">My Jokes</Link></li>
+        <li><Link onClick={() => onLogout()}>Logout</Link></li>
+      </React.Fragment>
+    );
+    dropdownButton = <i className="fas fa-user-circle" />;
+  } else if (profileIsLoaded && profileIsEmpty) {
+    // User is not logged in
+    dropdownButton = <i class="fas fa-sign-in-alt" />;
+    dropdownListItems = <li><Link to="/auth">Login or Signup</Link> to create and share your jokes!</li>;
+  } else {
+    // Profile is most likely loading
+    dropdownButton = <i className="fas fa-circle-notch fa-spin" />;
+    dropdownListItems = null;
+  }
 
   return (
     <div className="page__header row justify-content-between">
@@ -26,4 +41,10 @@ function Header() {
   )
 }
 
-export default Header;
+const mapStateToProps = ({ firebase: { auth } }) => ({ firebaseAuth: auth });
+
+const mapDispatchToProps = (dispatch) => ({
+  onLogout: () => dispatch(logout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

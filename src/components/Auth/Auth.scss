@@ -85,6 +85,11 @@
       border-radius: 10px;
       border: none;
     }
+
+    .custom-alert {
+      background-color: $error-color;
+      color: #fff;
+    }
   }
 
   .social-auth {

@@ -1,16 +1,34 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-function Login() {
+
+import { login } from '../../store/actions/auth.actions';
+
+function Login(props) {
+  console.log(props);
+
+  const { onLogin, loginError, history, firebaseAuth } = props;
+
   const [email, setLoginEmail] = useState("");
   const [password, setLoginPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ email, password });
+    onLogin({ email, password });
   };
+
+  if (!firebaseAuth.isEmpty) history.push('/');
 
   return (
     <form onSubmit={handleSubmit} className="manual-auth">
+      {
+        loginError ? (
+          <div className="alert alert-danger custom-alert" role="alert">
+            {loginError.message}
+          </div>
+        ) : null
+      }
       <div className="form-group">
         <input
           id="loginEmail"
@@ -39,4 +57,10 @@ function Login() {
   )
 }
 
-export default Login;
+const mapStateToProps = ({ auth: { loginError }, firebase: { auth } }) => ({ loginError, firebaseAuth: auth });
+
+const mapDispatchToProps = (dispatch) => ({
+  onLogin: (credentials) => dispatch(login(credentials)),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

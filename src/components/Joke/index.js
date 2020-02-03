@@ -5,7 +5,9 @@ import Dropdown from '../Dropdown';
 import ActionButton from '../ActionButton';
 
 
-function Joke() {
+function Joke(props) {
+  const { history } = props;
+
   const [rawJokeData, setRawJokeData] = useState([]);
   const [jokes, setJokes] = useState([]);
 
@@ -96,7 +98,7 @@ function Joke() {
           {jokes}
         </SwipeableViews>
 
-        <ActionButton icon={<i className="fas fa-pen" />} />
+        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/jokes")} />
       </main>
     )
   }

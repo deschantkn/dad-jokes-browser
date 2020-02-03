@@ -13,7 +13,8 @@ import './index.scss';
 
 
 const rrfConfig = {
-  userProfile: 'users'
+  userProfile: 'users',
+  useFirestoreForProfile: true
 };
 
 const rrfProps = {

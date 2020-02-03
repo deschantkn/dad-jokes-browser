@@ -16,7 +16,7 @@ function Jokes(props) {
       <ul className="joke-list">
         { jokes ? 
           jokes.map(joke => (
-            <li>
+            <li key={joke.id}>
               <div className="joke-card">
                 <p className="joke-summary">{joke.joke}</p>
               </div>
