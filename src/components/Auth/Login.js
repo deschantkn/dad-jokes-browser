@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { login } from '../../store/actions/auth.actions';
 
 function Login(props) {
-  const { onLogin, loginError, history, firebaseAuth, location: { state } } = props;
+  const { onLogin, loginError } = props;
 
   const [email, setLoginEmail] = useState("");
   const [password, setLoginPassword] = useState("");
@@ -14,12 +13,6 @@ function Login(props) {
     e.preventDefault();
     onLogin({ email, password });
   };
-
-  if (!firebaseAuth.isEmpty && state.from ) { 
-    history.push(`${state.from}`);
-  } else {
-    history.push("/");
-  }
 
   return (
     <form onSubmit={handleSubmit} className="manual-auth">
@@ -64,4 +57,4 @@ const mapDispatchToProps = (dispatch) => ({
   onLogin: (credentials) => dispatch(login(credentials)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

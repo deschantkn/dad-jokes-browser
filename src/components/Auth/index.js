@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../../config/firebaseConfig';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
 
 import './Auth.scss';
 import Login from './Login';
 import Signup from './Signup';
 
-const Auth = () => {
+const Auth = (props) => {
+  const { firebaseAuth, location: { state } } = props;
+
   const uiConfig = {
     signInFlow: 'popup',
     signInSuccessUrl: '/',
@@ -16,6 +20,12 @@ const Auth = () => {
   };
 
   const [isLogin, toggleAuthForm] = useState(true);
+
+  if (!firebaseAuth.isEmpty && state?.from ) {
+    return <Redirect to={`${state.from}`} />;
+  } else if (!firebaseAuth.isEmpty) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <main className="page__main">
@@ -41,4 +51,6 @@ const Auth = () => {
   )
 }
 
-export default Auth;
+const mapStateToProps = ({ firebase: { auth } }) => ({ firebaseAuth: auth });
+
+export default connect(mapStateToProps)(Auth);
