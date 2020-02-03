@@ -10,7 +10,7 @@ function Header() {
   //     <li><a href="/logout">Logout</a></li>
   //   </React.Fragment>
   // );
-  const dropdownListItems = <li><a href="/auth">Signup</a> or <a href="/auth">Login</a> to create and share your jokes!</li>;
+  const dropdownListItems = <li><a href="/auth">Login or Signup</a> to create and share your jokes!</li>;
 
   // TODO: Replace with user profile picture if logged in
   const dropdownButton = <i className="far fa-user-circle" />;
