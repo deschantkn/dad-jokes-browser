@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-
 import { login } from '../../store/actions/auth.actions';
 
 function Login(props) {
-  const { onLogin, loginError, history, firebaseAuth } = props;
+  const { onLogin, loginError, history, firebaseAuth, location: { state } } = props;
 
   const [email, setLoginEmail] = useState("");
   const [password, setLoginPassword] = useState("");
@@ -16,7 +15,11 @@ function Login(props) {
     onLogin({ email, password });
   };
 
-  if (!firebaseAuth.isEmpty) history.push('/');
+  if (!firebaseAuth.isEmpty && state.from ) { 
+    history.push(`${state.from}`);
+  } else {
+    history.push("/");
+  }
 
   return (
     <form onSubmit={handleSubmit} className="manual-auth">
