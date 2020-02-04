@@ -9,11 +9,9 @@ import './Jokes.scss';
 function Jokes(props) {
   const { jokes, firebaseAuth, onGetJoke } = props;
 
-  console.log('==>', jokes);
-
   useEffect(() => {
-    onGetJoke();
-  }, []);
+    if (firebaseAuth.isLoaded) onGetJoke();
+  }, [onGetJoke, firebaseAuth.isLoaded]);
 
   if (firebaseAuth.isLoaded && firebaseAuth.isEmpty) {
     return <Redirect to={{
