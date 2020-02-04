@@ -42,8 +42,8 @@ function Joke(props) {
       const message = `${joke.joke} - More dad jokes on https://djbrowse.herokuapp.com #dadjokes`;
       const dropdownContent = (
         <React.Fragment>
-          <li><a href={`whatsapp://send?text=${message}`} data-action="share/whatsapp/share">Whatsapp</a></li>
-          <li><a href={`https://twitter.com/intent/tweet?text=${message}&hashtags=DadJoke`}>Twitter</a></li>
+          <a target="_blank" rel="noopener noreferrer" href={`whatsapp://send?text=${message}`} data-action="share/whatsapp/share"><li>Whatsapp</li></a>
+          <a target="_blank" rel="noopener noreferrer" href={`https://twitter.com/intent/tweet?text=${message}&hashtags=DadJoke`}><li>Twitter</li></a>
         </React.Fragment>
       );
     

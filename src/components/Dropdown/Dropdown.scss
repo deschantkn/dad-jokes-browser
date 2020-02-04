@@ -15,15 +15,17 @@
   padding: 10px 0;
 
   li {
+    color: #fff;
     padding: 10px;
+    cursor: pointer;
 
     &:hover {
       background-color: $secondary-color;
     }
+  }
 
-    a {
-      color: #fff;
-    }
+  a {
+    text-decoration: none;
   }
 }
 

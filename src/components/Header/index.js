@@ -15,8 +15,7 @@ function Header(props) {
     // User is logged
     dropdownListItems = (
       <React.Fragment>
-        <li><Link to="/jokes">My Jokes</Link></li>
-        {/* TODO: Update <li> items' css to use span as child and have cursor pointer */}
+        <Link to="/jokes"><li>My Jokes</li></Link>
         <li onClick={() => onLogout()}><span>Logout</span></li>
       </React.Fragment>
     );
@@ -26,7 +25,7 @@ function Header(props) {
   } else if (profileIsLoaded && profileIsEmpty) {
     // User is not logged in
     dropdownButton = <i className="fas fa-sign-in-alt" />;
-    dropdownListItems = <li><Link to="/auth">Login or Signup</Link> to create and share your jokes!</li>;
+    dropdownListItems = <Link to="/auth"><li>Login or Signup!</li></Link>;
   } else {
     // Profile is most likely loading
     dropdownButton = <i className="fas fa-circle-notch fa-spin" />;
