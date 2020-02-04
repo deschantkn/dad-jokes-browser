@@ -7,7 +7,7 @@ import './Header.scss';
 import Dropdown from '../Dropdown';
 
 function Header(props) {
-  const { firebaseAuth: { isLoaded: profileIsLoaded, isEmpty: profileIsEmpty }, onLogout } = props;
+  const { firebaseAuth: { isLoaded: profileIsLoaded, isEmpty: profileIsEmpty }, onLogout, profile } = props;
 
   let dropdownListItems;
   let dropdownButton;
@@ -20,7 +20,7 @@ function Header(props) {
         <li onClick={() => onLogout()}><span>Logout</span></li>
       </React.Fragment>
     );
-    dropdownButton = <i className="fas fa-user-circle" />;
+    dropdownButton = <i>{profile.initials}</i>;
   } else if (profileIsLoaded && profileIsEmpty) {
     // User is not logged in
     dropdownButton = <i className="fas fa-sign-in-alt" />;
@@ -42,7 +42,7 @@ function Header(props) {
   )
 }
 
-const mapStateToProps = ({ firebase: { auth } }) => ({ firebaseAuth: auth });
+const mapStateToProps = ({ firebase: { auth, profile } }) => ({ firebaseAuth: auth, profile });
 
 const mapDispatchToProps = (dispatch) => ({
   onLogout: () => dispatch(logout())

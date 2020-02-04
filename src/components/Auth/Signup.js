@@ -13,7 +13,7 @@ function Signup(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignup({ firstName, lastName, email, password, passwordConfirm })
+    onSignup({ firstName, lastName, email, password, passwordConfirm });
   };
 
   return (
