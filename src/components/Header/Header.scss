@@ -1,3 +1,5 @@
+@import '../../scss/colors.scss';
+
 .page__header {
   padding: 0 10px;
 
@@ -12,8 +14,19 @@
       font-size: 2em;
 
       &:hover {
-        color: #000;
+        color: $success-color;
       }
+    }
+  }
+
+  .img-thumbnail-custom {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $success-color;
+      border-color: $success-color;
     }
   }
 }

@@ -29,6 +29,9 @@ const NewJoke = (props) => {
 
   return (
     <main className="page__main new-joke">
+
+      <h4>Time to get creative</h4>
+
       <div className="joke-card">
         <div className="joke-background">
           <textarea
@@ -37,6 +40,7 @@ const NewJoke = (props) => {
             placeholder="..." />
         </div>
       </div>
+      
       {actionButton}
     </main>
   )

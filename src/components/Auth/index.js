@@ -13,10 +13,12 @@ const Auth = (props) => {
 
   const uiConfig = {
     signInFlow: 'popup',
-    signInSuccessUrl: '/',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID
-    ]
+    ],
+    callbacks: {
+      signInSucess: () => <Redirect to="/create" />
+    }
   };
 
   const [isLogin, toggleAuthForm] = useState(true);

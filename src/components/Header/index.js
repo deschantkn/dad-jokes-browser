@@ -7,7 +7,7 @@ import './Header.scss';
 import Dropdown from '../Dropdown';
 
 function Header(props) {
-  const { firebaseAuth: { isLoaded: profileIsLoaded, isEmpty: profileIsEmpty }, onLogout, profile } = props;
+  const { firebaseAuth: { isLoaded: profileIsLoaded, isEmpty: profileIsEmpty, photoURL }, onLogout, profile } = props;
 
   let dropdownListItems;
   let dropdownButton;
@@ -20,7 +20,9 @@ function Header(props) {
         <li onClick={() => onLogout()}><span>Logout</span></li>
       </React.Fragment>
     );
-    dropdownButton = <i>{profile.initials}</i>;
+
+    if (photoURL) dropdownButton = <img className="img-thumbnail img-thumbnail-custom" src={photoURL} alt="Profile" />
+    else dropdownButton = <i>{profile.initials}</i>;
   } else if (profileIsLoaded && profileIsEmpty) {
     // User is not logged in
     dropdownButton = <i className="fas fa-sign-in-alt" />;
