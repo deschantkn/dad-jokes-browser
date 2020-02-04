@@ -98,6 +98,7 @@ function Joke(props) {
           {jokes}
         </SwipeableViews>
 
+        <h4>Or write your own puns!</h4>
         <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
       </main>
     )

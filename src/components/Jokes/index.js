@@ -5,9 +5,10 @@ import { Redirect } from 'react-router-dom';
 import { getJokes } from '../../store/actions/jokes.actions';
 
 import './Jokes.scss';
+import ActionButton from '../ActionButton';
 
 function Jokes(props) {
-  const { jokes, firebaseAuth, onGetJoke } = props;
+  const { jokes, firebaseAuth, onGetJoke, history } = props;
 
   useEffect(() => {
     if (firebaseAuth.isLoaded) onGetJoke();
@@ -22,7 +23,7 @@ function Jokes(props) {
 
   if (jokes && jokes.length > 0) {
     return (
-      <div className="page__main page__jokes">
+      <main className="page__main page__jokes">
 
         <h4>Your jokes</h4>
 
@@ -37,7 +38,9 @@ function Jokes(props) {
             ))
           }
         </ul>
-      </div>
+
+        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
+      </main>
     );
   }
 

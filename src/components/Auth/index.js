@@ -22,7 +22,10 @@ const Auth = (props) => {
   const [isLogin, toggleAuthForm] = useState(true);
 
   if (!firebaseAuth.isEmpty && state?.from ) {
-    return <Redirect to={`${state.from}`} />;
+    return <Redirect to={{
+      pathname: `${state?.from}`,
+      state: { from: false }
+    }} />;
   } else if (!firebaseAuth.isEmpty) {
     return <Redirect to="/" />;
   }
@@ -30,6 +33,12 @@ const Auth = (props) => {
   return (
     <main className="page__main">
       <h4>Create and share your puns</h4>
+
+      { firebaseAuth.isEmpty && state?.from ?
+        <div className="alert alert-primary info-alert" role="alert">
+          Login or Signup so your can create your own puns!
+        </div>
+      : null }
 
       <ul className="nav auth-nav with-indicator">
         <li className={`nav-item ${isLogin ? '' : 'tab-active'}`}><button onClick={() => toggleAuthForm(false)} className="btn">Signup</button></li>

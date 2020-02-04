@@ -63,7 +63,7 @@ ul {
       justify-content: center;
       font-family: Sniglet, sans-serif;
       padding: 10px;
-      margin: 0 10px;
+      margin: 20px 10px;
     }
 
     .joke-background {
@@ -96,6 +96,13 @@ ul {
         font-size: .6em;
         padding: 0 10px;
       }
+    }
+
+    .info-alert {
+      background-color: $success-color;
+      color: #fff;
+      width: 100%;
+      margin: 16px 0 0 0;
     }
   }
 
