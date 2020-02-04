@@ -52,8 +52,7 @@ function Joke(props) {
           <div className="joke-background">
             <div className="joke">
               <p>{joke.joke}</p>
-              <div className="joke-info d-flex align-items-center justify-content-between">
-                <span>From <i>Deschant</i></span>
+              <div className="joke-info d-flex align-items-center justify-content-end">
                 <Dropdown dropdownButton={<i className="fa fa-2x fa-share-alt" />} dropdownContent={dropdownContent} />
               </div>
             </div>

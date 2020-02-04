@@ -7,19 +7,20 @@ import ActionButton from '../ActionButton';
 import './NewJoke.scss';
 
 const NewJoke = (props) => {
-  const { onCreateJoke, createdJokes, firebaseAuth } = props;
+  const { onCreateJoke, createdJokes, firebaseAuth, history } = props;
 
   const [newJoke, setNewJoke] = useState("");
 
-  const handleJokeSunmission = () => {
-    onCreateJoke(newJoke);
+  const handleJokeSunmission = async () => {
+    await onCreateJoke(newJoke);
+    history.push('/jokes');
   };
 
   let actionButton;
   if (createdJokes.isCreating) actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-circle-notch fa-spin" />} isDisabled/>);
   else actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-check" />} />);
 
-  if (firebaseAuth.isEmpty) {
+  if (firebaseAuth.isLoaded && firebaseAuth.isEmpty) {
     return <Redirect to={{
       pathname: "/auth",
       state: { from: "/create" }
