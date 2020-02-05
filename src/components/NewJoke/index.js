@@ -12,8 +12,14 @@ const NewJoke = (props) => {
   const { onCreateJoke, createdJokes, firebaseAuth, history } = props;
 
   const [newJoke, setNewJoke] = useState("");
+  const [isFieldEmpty, setIsFieldEmpty] = useState(false);
 
   const handleJokeSunmission = async () => {
+    if (newJoke.length <= 0) {
+      setIsFieldEmpty(true);
+      return;
+    }
+
     await onCreateJoke(newJoke);
     history.push('/jokes');
   };
@@ -34,9 +40,16 @@ const NewJoke = (props) => {
 
       <h4>Time to get creative</h4>
 
+      { isFieldEmpty ?
+      <div className="alert alert-danger custom-alert" role="alert">
+        How is that funny? <span role="img" aria-label="Poker Face">😐</span>
+      </div>
+      : null }
+
       <div className="joke-card">
         <div className="joke-background">
           <textarea
+            className="form-control"
             value={newJoke} 
             onChange={e => setNewJoke(e.target.value)} 
             placeholder="..." />
