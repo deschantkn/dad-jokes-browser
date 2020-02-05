@@ -25,17 +25,24 @@ export const getJokes = () => async (dispatch, getState, { getFirebase }) => {
 export const createJoke = (joke) => async (dispatch, getState, { getFirebase }) => {
   try {
     dispatch({ type: CREATE_JOKE });
+    const firebase = getState().firebase;
     const firestore = getFirebase().firestore();
-    const profile = getState().firebase.profile;
-    const authorId = getState().firebase.auth.uid;
-
+    const authorId = firebase.auth.uid;
     const newJoke = {
       joke,
       authorId,
-      authorFirstName: profile.firstName,
-      authorLastName: profile.lastName,
       createdOn: Date.now()
     };
+    
+    if (firebase.profile.isLoaded && firebase.profile.isEmpty) {
+      Object.assign(newJoke, { authorName: firebase.auth.displayName });
+    } else {
+      Object.assign(newJoke, {
+        authorFirstName: firebase.profile.firstName,
+        authorLastName: firebase.profile.lastName,
+      });
+    }
+
     await firestore.collection('jokes').add(newJoke);
     dispatch({ type: CREATE_JOKE_FINISHED, payload: { joke: newJoke } });
   } catch (error) {

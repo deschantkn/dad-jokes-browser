@@ -40,7 +40,8 @@ const reducer = (state = initialState, action) => {
     case CREATE_JOKE_ERROR:
       return {
         ...state,
-        error: payload.error
+        error: payload.error,
+        isCreating: false
       };
     case GET_USER_JOKES:
     default:

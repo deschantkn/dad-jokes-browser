@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from '../../config/firebaseConfig';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 
-import './Auth.scss';
 import Login from './Login';
 import Signup from './Signup';
+import firebase from '../../config/firebaseConfig';
+
+import './Auth.scss';
 
 const Auth = (props) => {
   const { firebaseAuth, location: { state } } = props;
