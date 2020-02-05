@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 
 import { getJokes } from '../../store/actions/jokes.actions';
 
@@ -39,7 +41,7 @@ function Jokes(props) {
           }
         </ul>
 
-        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
+        <ActionButton icon={<FontAwesomeIcon icon={faPen} />} action={() => history.push("/create")} />
       </main>
     );
   } else if (jokes && jokes.length === 0) {
@@ -56,7 +58,7 @@ function Jokes(props) {
           </li>
         </ul>
 
-        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
+        <ActionButton icon={<FontAwesomeIcon icon={faPen} />} action={() => history.push("/create")} />
       </main>
     );
   }

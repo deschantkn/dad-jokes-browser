@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { createJoke } from '../../store/actions/jokes.actions';
 import { Redirect } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 import ActionButton from '../ActionButton';
 import './NewJoke.scss';
@@ -17,8 +19,8 @@ const NewJoke = (props) => {
   };
 
   let actionButton;
-  if (createdJokes.isCreating) actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-circle-notch fa-spin" />} isDisabled/>);
-  else actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<i className="fas fa-check" />} />);
+  if (createdJokes.isCreating) actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<FontAwesomeIcon icon={faCircleNotch} spin />} isDisabled/>);
+  else actionButton = (<ActionButton action={() => handleJokeSunmission()} icon={<FontAwesomeIcon icon={faCheck} />} />);
 
   if (firebaseAuth.isLoaded && firebaseAuth.isEmpty) {
     return <Redirect to={{

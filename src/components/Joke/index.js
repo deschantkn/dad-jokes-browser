@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen, faShareAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Dropdown from '../Dropdown';
 import ActionButton from '../ActionButton';
@@ -53,7 +55,7 @@ function Joke(props) {
             <div className="joke">
               <p>{joke.joke}</p>
               <div className="joke-info d-flex align-items-center justify-content-end">
-                <Dropdown dropdownButton={<i className="fa fa-2x fa-share-alt" />} dropdownContent={dropdownContent} />
+                <Dropdown dropdownButton={<FontAwesomeIcon icon={faShareAlt} />} dropdownContent={dropdownContent} />
               </div>
             </div>
           </div>
@@ -99,7 +101,7 @@ function Joke(props) {
         </SwipeableViews>
 
         <h4>Or write your own puns!</h4>
-        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
+        <ActionButton icon={<FontAwesomeIcon icon={faPen} />} action={() => history.push("/create")} />
       </main>
     )
   }
