@@ -42,6 +42,23 @@ function Jokes(props) {
         <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
       </main>
     );
+  } else if (jokes && jokes.length === 0) {
+    return (
+      <main className="page__main page__jokes">
+
+        <h4>Your jokes</h4>
+
+        <ul className="joke-list">
+          <li>
+            <div className="joke-card">
+              <p className="joke-summary">You don't have any jokes yet</p>
+            </div>
+          </li>
+        </ul>
+
+        <ActionButton icon={<i className="fas fa-pen" />} action={() => history.push("/create")} />
+      </main>
+    );
   }
 
   return (
