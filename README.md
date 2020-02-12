@@ -2,8 +2,6 @@
 
 ### View and share the funniest dad jokes!
 
-Ideas and suggestions are welcome!
-
 Live at https://djbrowse.herokuapp.com
 
 A small project I hacked together so that I could indulge in my love of dad jokes a little easier 😆
